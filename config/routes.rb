@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root 'pages#index'
 
   get 'resultados' => 'pages#search'
+  get 'advanced' => 'pages#advanced'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
