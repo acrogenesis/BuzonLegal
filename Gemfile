@@ -1,4 +1,7 @@
 source 'https://rubygems.org'
+source 'https://rails-assets.org' do
+  gem 'rails-assets-bootstrap-datepicker'
+end
 
 ruby '2.2.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
