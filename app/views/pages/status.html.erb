@@ -2,45 +2,40 @@
   <%= link_to "Regresar al inicio", root_path, class: "btn btn-primary" %>
   <h1>Estatus del sistema</h1>
   <!-- Start scrappers -->
-  <div>
-    <div class="row wrapper status-container">
-      <div class="col-md-6">
-        <div class="col-md-10">
-          <h3>Jalisco</h3>
-        </div>
-        <div class="col-md-2 status-icon">
-          <%= fa_icon "check-circle 2x", class: "check-icon" %>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="col-md-10">
-          <h3>Nuevo León</h3>
-        </div>
-        <div class="col-md-2 status-icon">
-          <%= fa_icon "times-circle 2x", class: "cross-icon" %>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="col-md-10">
-          <h3>Guanajuato</h3>
-        </div>
-        <div class="col-md-2 status-icon">
-          <%= fa_icon "times-circle 2x", class: "cross-icon" %>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="col-md-10">
-          <h3>Baja California</h3>
-        </div>
-        <div class="col-md-2 status-icon">
-          <%= fa_icon "times-circle 2x", class: "cross-icon" %>
-        </div>
-      </div>
-    </div>
-    <div class="clearfix">
-      <div class="icon-description"><%= fa_icon "check-circle", class: "check-icon" %> Funciona perfectamente</div>
-      <div class="icon-description"><%= fa_icon "times-circle", class: "cross-icon" %> Está caído </div>
-    </div>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Componente</th>
+        <th>Estatus</th>
+        <th>Última Actualización</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Jalisco</td>
+        <td><%= fa_icon "check-circle 2x", class: "check-icon" %></td>
+        <td>30/04/2015</td>
+      </tr>
+      <tr>
+        <td>Nuevo León</td>
+        <td><%= fa_icon "times-circle 2x", class: "cross-icon" %></td>
+        <td>25/04/2015</td>
+      </tr>
+      <tr>
+        <td>Guanajuato</td>
+        <td><%= fa_icon "times-circle 2x", class: "cross-icon" %></td>
+        <td>28/04/2015</td>
+      </tr>
+      <tr>
+        <td>Baja California</td>
+        <td><%= fa_icon "times-circle 2x", class: "cross-icon" %></td>
+        <td>24/04/2015</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="clearfix">
+    <div class="icon-description"><%= fa_icon "check-circle", class: "check-icon" %> Funciona perfectamente</div>
+    <div class="icon-description"><%= fa_icon "times-circle", class: "cross-icon" %> Está caído </div>
   </div>
   <h2>Incidentes Pasados</h2>
   <!-- Start log of scrappers -->
