@@ -5,7 +5,7 @@
 html,
 body,
 .container {
-  height: 100%;
+  height: 95%;
 }
 
 .container {
@@ -72,12 +72,63 @@ body,
 }
 
 .advanced-link{
-  text-align: right;padding-top:10px;
+  text-align: right;
+  padding-top:10px;
 }
 
 .advanced-options{
-  padding-left:0;padding-bottom:20px;font-size:18px;
+  padding-left:0;
+  padding-bottom:20px;
+  font-size:18px;
 }
 .logo2{
-  text-decoration:none;color:black;
+  text-decoration:none;
+  color:black;
+}
+
+footer {
+  font-size: 14px;
+  text-align: center;
+  height: 5%;
+}
+
+.inner-wrapper {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.check-icon {
+  color: green;
+}
+
+.cross-icon {
+  color: red;
+}
+
+.icon-description {
+  width: 50%;
+  text-align: center;
+  float: left;
+  margin-top: 10px;
+}
+
+.status-icon {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.wrapper {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.status-container {
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.log {
+  margin: 10px;
+  padding: 5px;
+  border-bottom: 1px solid rgba(10, 10, 10, 0.1);
 }

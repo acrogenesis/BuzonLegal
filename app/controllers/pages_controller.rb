@@ -7,4 +7,13 @@ class PagesController < ApplicationController
 
   def advanced
   end
+
+  def about
+  end
+
+  def privacy
+  end
+
+  def status
+  end
 end

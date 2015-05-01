@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: BuzonLegal_production
-  username: BuzonLegal
-  password: <%= ENV['BUZONLEGAL_DATABASE_PASSWORD'] %>
+  username: PatoBeltran
+  password: 

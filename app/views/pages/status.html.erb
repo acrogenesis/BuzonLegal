@@ -1,0 +1,71 @@
+<div class="inner-wrapper">
+  <%= link_to "Regresar al inicio", root_path, class: "btn btn-primary" %>
+  <h1>Estatus del sistema</h1>
+  <!-- Start scrappers -->
+  <div>
+    <div class="row wrapper status-container">
+      <div class="col-md-6">
+        <div class="col-md-10">
+          <h3>Jalisco</h3>
+        </div>
+        <div class="col-md-2 status-icon">
+          <%= fa_icon "check-circle 2x", class: "check-icon" %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="col-md-10">
+          <h3>Nuevo León</h3>
+        </div>
+        <div class="col-md-2 status-icon">
+          <%= fa_icon "times-circle 2x", class: "cross-icon" %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="col-md-10">
+          <h3>Guanajuato</h3>
+        </div>
+        <div class="col-md-2 status-icon">
+          <%= fa_icon "times-circle 2x", class: "cross-icon" %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="col-md-10">
+          <h3>Baja California</h3>
+        </div>
+        <div class="col-md-2 status-icon">
+          <%= fa_icon "times-circle 2x", class: "cross-icon" %>
+        </div>
+      </div>
+    </div>
+    <div class="clearfix">
+      <div class="icon-description"><%= fa_icon "check-circle", class: "check-icon" %> Funciona perfectamente</div>
+      <div class="icon-description"><%= fa_icon "times-circle", class: "cross-icon" %> Está caído </div>
+    </div>
+  </div>
+  <h2>Incidentes Pasados</h2>
+  <!-- Start log of scrappers -->
+  <div class="wrapper">
+    <div class="log">
+      <h4>Abril 30, 2015</h4>
+      <p>El scrapper de Jalisco fue agregado.</p>
+    </div>
+    <div class="log">
+      <h4>Abril 28, 2015</h4>
+      <p>Nuevo Leon se cayó.</p>
+    </div>
+    <div class="log">
+      <h4>Abril 30, 2015</h4>
+      <p>Baja California se cayó.</p>
+    </div>
+    <div class="log">
+      <h4>Abril 30, 2015</h4>
+      <p>Baja California en linea.</p>
+    </div>
+    <div class="log">
+      <h4>Abril 30, 2015</h4>
+      <p>Baja California se cayó.</p>
+    </div>
+  </div>
+  <div>
+  </div>
+</div>

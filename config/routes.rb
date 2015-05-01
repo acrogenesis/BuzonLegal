@@ -7,6 +7,9 @@ Rails.application.routes.draw do
 
   get 'resultados' => 'pages#search'
   get 'advanced' => 'pages#advanced'
+  get 'about' => 'pages#about'
+  get 'privacy' => 'pages#privacy'
+  get 'status' => 'pages#status'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
