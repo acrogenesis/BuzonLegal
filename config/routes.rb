@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   get 'resultados' => 'pages#search'
   get 'advanced' => 'pages#advanced'
-  get 'about' => 'pages#about'
+  get 'faq' => 'pages#faq'
   get 'privacy' => 'pages#privacy'
   get 'status' => 'pages#status'
 
