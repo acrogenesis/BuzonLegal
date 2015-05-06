@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'faq' => 'pages#faq'
   get 'privacy' => 'pages#privacy'
   get 'status' => 'pages#status'
+  get 'case' => 'pages#case'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

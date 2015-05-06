@@ -1,0 +1,30 @@
+<% unless @cases.empty? %>
+  <h3>Estado</h3>
+  <%= @cases.first.tribunal.state.name %>
+  <h3>Juzgado</h3>
+  <%= @cases.first.tribunal.name %>
+  <h3>Número</h3>
+  <%= @cases.first.casenumber %>
+  <div>
+    <h4>Número de acuerdos</h4>
+    <%= @cases.count %>
+  </div>
+  <div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Fecha</th>
+          <th>Descripcion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @cases.each do |file_case| %>
+          <tr>
+            <td><%= file_case.date %></td>
+            <td><%= file_case.description %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>

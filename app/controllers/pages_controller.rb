@@ -6,6 +6,10 @@ class PagesController < ApplicationController
   def search
   end
 
+  def case
+    @cases = Case.where(casenumber: params[:q])
+  end
+
   def advanced
     render layout: 'landing'
   end
