@@ -12,4 +12,5 @@
 
 class State < ActiveRecord::Base
   has_many :tribunals
+  has_many :incidents
 end
