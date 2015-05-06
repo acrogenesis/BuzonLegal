@@ -4,6 +4,7 @@ class PagesController < ApplicationController
   end
 
   def search
+    @cases = Case.where("casenumber like (?)", "%#{params[:q]}%")
   end
 
   def case

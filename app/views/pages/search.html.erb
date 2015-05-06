@@ -1,56 +1,37 @@
 <!-- Start results -->
 <div class="row">
   <div class="col-xs-12">
-    <h3>Resultado de acuerdos</h3>
+    <% if @cases.empty? %>
+      <h3>No se han encontrado acuerdos</h3>
+    <% else %>
+      <h3>Resultado de acuerdos</h3>
+    <% end %>
   </div>
 </div>
 
-
-<div class="row">
-  <div class="col-xs-12">
-<table class="table table-striped">
-  <thead>
+<% unless @cases.empty? %>
+  <div class="row">
+    <div class="col-xs-12">
+      <table class="table table-striped">
+        <thead>
           <tr>
-            <th>#</th>
             <th>Expediente</th>
-            <th>Actor</th>
-            <th>Demandado</th>
+            <th>Estado</th>
+            <th>Tribunal</th>
             <th>Acuerdo</th>
           </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td><%= link_to "251/2006", case_path(q: "251/2006") %></td>
-      <td>BERTHA ALICIA LOPEZ</td>
-      <td>GUADALUPE VAZQUEZ DERAS</td>
-      <td>BERTHA ALICIA LOPEZ. VS GUADALUPE VAZQUEZ DERAS., ORD CIVIL, ACDO</td>
-    </tr>
-
-
-      <tr>
-        <td>2</td>
-        <td>5/2013</td>
-        <td>MARIO LOPEZ</td>
-        <td>VALDEZ URIA</td>
-        <td>MARIO LOPEZ. VS VALDEZ URIA., ORD CIVIL, ACDO</td>
-      </tr>
-
-
-        <tr>
-          <td>3</td>
-          <td>914/2008</td>
-          <td>COLEGIO MEDICO DE TIJUANA</td>
-          <td>JOSE DE JESUS CLARK FLORES</td>
-          <td>COLEGIO MEDICO DE TIJUANA VS JOSE DE JESUS CLARK FLORES ORD. CIVIL, ACDO</td>
-        </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-<table>
-  <thead>
-
-  </thead>
-</table>
+        </thead>
+        <tbody>
+          <% @cases.each do |file_case| %>
+            <tr>
+              <td><%= link_to file_case.casenumber.to_s, case_path(q: file_case.casenumber.to_s) %></td>
+              <td><%= file_case.tribunal.state.name %></td>
+              <td><%= file_case.tribunal.name %></td>
+              <td><%= file_case.description %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<% end %>
