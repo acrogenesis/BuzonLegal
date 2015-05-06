@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2015-05-05 14:10:04
+  casenumber: MyString
+  description: MyText
+  tribunal_id: 
+
+two:
+  date: 2015-05-05 14:10:04
+  casenumber: MyString
+  description: MyText
+  tribunal_id: 

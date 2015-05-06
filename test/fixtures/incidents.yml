@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyText
+  state_id: 
+  public: false
+
+two:
+  description: MyText
+  state_id: 
+  public: false
