@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'privacy' => 'pages#privacy'
   get 'status' => 'pages#status'
   get 'case' => 'pages#case'
+  get 'get_jury' => 'pages#get_jury', :defaults => { :format => :json }
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
