@@ -7,7 +7,7 @@ class PagesController < ApplicationController
 
   def search
     date = params[:date]
-    # redirect_to root_path if params[:q].length < 4
+    redirect_to root_path if params[:q].length < 4
     @cases = Case
     if date.present? && params[:jury].present?
       date =  Date.strptime(date, '%m/%d/%Y')
