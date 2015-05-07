@@ -20,7 +20,7 @@ class PagesController < ApplicationController
   end
 
   def case
-    @cases = Case.where(casenumber: params[:q])
+    @cases = Case.where(casenumber: params[:q], tribunal_id: params[:tribunal])
   end
 
   def advanced
