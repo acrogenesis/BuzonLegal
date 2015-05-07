@@ -8,6 +8,14 @@ body,
   height: 95%;
 }
 
+h1 {
+  font-family: 'Georgia';
+}
+
+title-main {
+  font-size: 2vw;
+}
+
 .container {
   display: table;
   vertical-align: middle;
@@ -86,6 +94,10 @@ body,
 .logo2{
   color: black;
   text-decoration: none;
+  h1 {
+    display: inline;
+    font-size: 2rem;
+  }
 }
 
 footer {
