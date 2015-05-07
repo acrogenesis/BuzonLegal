@@ -7,6 +7,7 @@ class PagesController < ApplicationController
 
   def search
     date = params[:date]
+    redirect_to root_path if params[:q].length < 4
     @cases = Case
     if date.present? && params[:jury].present?
       date =  Date.strptime(date, '%m/%d/%Y')
@@ -16,7 +17,7 @@ class PagesController < ApplicationController
     elsif params[:jury].present?
       @cases = @cases.where(tribunal_id: params[:jury])
     end
-    @cases = @cases.where('casenumber ILIKE :q OR description ILIKE :q', q: "%#{params[:q]}%")
+    @cases = @cases.where('casenumber ILIKE :q OR description ILIKE :q', q: "%#{params[:q]}%").order(:date).page params[:page]
   end
 
   def case

@@ -9,6 +9,8 @@ gem 'rails', '4.2.0'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+gem 'kaminari'
+gem 'bootstrap-kaminari-views'
 gem 'bootstrap-sass', '~> 3.3.3'
 gem 'font-awesome-rails'
 gem 'annotate'
