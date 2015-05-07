@@ -81,7 +81,7 @@ namespace :topolegal do
         fecha = Date.strptime(rhash['Fecha'],"%d-%m-%Y")
         descripcion = "#{rhash['Tipo']}: #{rhash['Mensaje']}"
 
-        Incident.create(state: state, created_at: fecha, description: descripcion)
+        Incident.find_or_create_by(state: state, created_at: fecha, description: descripcion)
         state.update_attributes(online: false, last_time_online: date)
       end
     rescue => e
