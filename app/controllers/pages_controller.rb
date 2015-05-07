@@ -33,6 +33,9 @@ class PagesController < ApplicationController
   def privacy
   end
 
+  def contact
+  end
+
   def status
     @states = State.all
     @incidents_by_date = Incident.where(created_at: (Date.current - 3.months).. Date.current).order(created_at: :desc).group_by { |incid| incid.created_at.day }.values

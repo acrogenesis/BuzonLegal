@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'advanced' => 'pages#advanced'
   get 'faq' => 'pages#faq'
   get 'privacy' => 'pages#privacy'
+  get 'contact' => 'pages#contact'
   get 'status' => 'pages#status'
   get 'case' => 'pages#case'
   get 'jury' => 'pages#jury', defaults: { format: :json }
