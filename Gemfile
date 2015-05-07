@@ -12,6 +12,7 @@ gem 'pg'
 gem 'bootstrap-sass', '~> 3.3.3'
 gem "font-awesome-rails"
 gem "annotate"
+gem "rails-i18n"
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

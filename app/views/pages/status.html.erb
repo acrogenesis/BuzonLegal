@@ -14,7 +14,7 @@
         <tr>
           <td><%= state.name %></td>
           <td><%= state.online ? fa_icon("check-circle 2x", class: "check-icon") : fa_icon("times-circle 2x", class: "cross-icon") %></td>
-          <td><%= l state.last_time_online %></td>
+          <td><%= l state.last_time_online, format: :long_no_time %></td>
         </tr>
       <% end %>
     </tbody>
@@ -29,7 +29,7 @@
     <div>
       <% @incidents_by_date.each do |incident_by_date| %>
         <div class="log">
-          <h4><%= l incident_by_date[0].created_at %></h4>
+          <h4><%= l incident_by_date.first.created_at, format: :long_no_time %></h4>
           <% incident_by_date.each do |incident| %>
             <p><strong><%= incident.state.name %> - </strong><%= incident.description %></p>
           <% end %>
