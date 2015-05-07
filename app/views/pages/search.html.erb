@@ -1,7 +1,7 @@
 <!-- Start results -->
 <div class="row">
   <div class="col-xs-12">
-    <% if @cases.empty? %>
+    <% if @cases.to_a.empty? %>
       <h3>No se han encontrado acuerdos</h3>
     <% else %>
       <h3>Resultado de acuerdos</h3>
@@ -9,7 +9,7 @@
   </div>
 </div>
 
-<% unless @cases.empty? %>
+<% unless @cases.to_a.empty? %>
   <div class="row">
     <div class="col-xs-12">
       <table class="table table-striped">
