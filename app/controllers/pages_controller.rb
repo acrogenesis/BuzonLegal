@@ -16,7 +16,8 @@ class PagesController < ApplicationController
     elsif params[:jury].present?
       @cases = @cases.where(tribunal_id: params[:jury])
     end
-    @cases = @cases.where('casenumber ILIKE :q OR description ILIKE :q', q: "%#{params[:q]}%").order(:date).page params[:page]
+    Tribunal.eager_load(:state)
+    @cases = @cases.includes(:tribunal).where('casenumber ILIKE :q OR description ILIKE :q', q: "%#{params[:q]}%").order(:date).page params[:page]
   end
 
   def case
@@ -38,7 +39,7 @@ class PagesController < ApplicationController
 
   def status
     @states = State.all
-    @incidents_by_date = Incident.where(created_at: Date.current..(Date.current - 3.months)).order(created_at: :desc).group_by { |incid| incid.created_at.day }.values
+    @incidents_by_date = Incident.where(created_at: (Date.current - 3.months).. Date.current).order(created_at: :desc).group_by { |incid| incid.created_at.day }.values
   end
 
   def jury
