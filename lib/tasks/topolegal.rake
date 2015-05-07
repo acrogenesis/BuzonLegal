@@ -1,6 +1,7 @@
 require 'csv'
 
 namespace :topolegal do
+  STATES = ["BajaCaliforniaNorte", "BajaCaliforniaSur", "Jalisco", "Guanajuato"]
   # usage:
   # rake topolegal:boletines[date]
   # date has to have dd/mm/YYYY order
@@ -13,8 +14,9 @@ namespace :topolegal do
       date = Date.today - 1
     end
 
-    date_str = date.strftime('%d-%m-%Y')
-    read_files(date_str)
+    Dir.chdir(ENV['TOPODIR']) do
+      read_files(date)
+    end
   end
 
   # usage:
@@ -28,31 +30,36 @@ namespace :topolegal do
     path = ENV['CSVDIR'] ? "-destination #{ENV['CSVDIR']}" : ''
 
     Dir.chdir(ENV['TOPODIR']) do
-      ["BajaCaliforniaNorte", "BajaCaliforniaSur", "Jalisco", "Guanajuato"].each do |state|
+      STATES.each do |state|
         system date.present? ? "ruby topo.rb #{state}:Boletines -output csv #{path} -date #{date}" : "ruby topo.rb #{state}:Boletines -output csv #{path}"
       end
     end
 
     if date
-      date_str = Date.strptime(args[:date],'%d/%m/%Y')
+      date = Date.strptime(args[:date],'%d/%m/%Y')
     else
-      date_str = Date.today - 1
+      date = Date.today - 1
     end
-    read_files(date_str.strftime('%d-%m-%Y'))
+    Dir.chdir(ENV['TOPODIR']) do
+      read_files(date)
+    end
   end
 
-  def read_files(date_str)
+  def read_files(date)
+    date_str = date.strftime('%d-%m-%Y')
     # se toma del ambiente de la computadora
     # export CSVDIR="/path/to/csvs/"
     path = ENV['CSVDIR'] ? ENV['CSVDIR'] : ''
-    State.all.each do |state|
+    STATES.each do |state_name|
+      state = State.find_or_create_by(name: state_name)
+      state.update_attributes(last_time_online: date, online: true)
       filename = "#{path}#{state.name}-#{date_str}.csv"
       begin
         CSV.foreach(filename, {:headers => true, :col_sep => "|"}) do |row|
           rhash = row.to_hash
           tribunal = Tribunal.find_or_create_by(name: rhash['Juzgado'], state: state)
           fecha = Date.strptime(rhash['Fecha'],"%d-%m-%Y")
-          tcase = Case.find_or_create_by(
+          Case.find_or_create_by(
             date: fecha,
             casenumber: rhash['Expediente'],
             description: rhash['Descripcion'],
@@ -64,6 +71,20 @@ namespace :topolegal do
       rescue Errno::ENOENT
         puts "WARNING: Failed to locate CSV for #{state.name}"
       end
+    end
+    filename = "#{path}Log-#{date_str}.csv"
+    begin
+      CSV.foreach(filename, {:headers => true, :col_sep => "|"}) do |row|
+        rhash = row.to_hash
+        state = State.find_by(name: rhash['Estado'])
+        fecha = Date.strptime(rhash['Fecha'],"%d-%m-%Y")
+        descripcion = "#{rhash['Tipo']}: #{rhash['Mensaje']}"
+
+        Incident.create(state: state, created_at: fecha, description: descripcion)
+        state.update_attributes(online: false, last_time_online: date)
+      end
+    rescue Errno::ENOENT
+      puts "No incidents found."
     end
   end
 end
