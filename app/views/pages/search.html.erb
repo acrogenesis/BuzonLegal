@@ -16,6 +16,7 @@
         <thead>
           <tr>
             <th>Expediente</th>
+            <th>Fecha</th>
             <th>Estado</th>
             <th>Tribunal</th>
             <th>Acuerdo</th>
@@ -25,6 +26,7 @@
           <% @cases.each do |file_case| %>
             <tr>
               <td><%= link_to file_case.casenumber.to_s, case_path(q: file_case.casenumber.to_s, tribunal: file_case.tribunal_id) %></td>
+              <td><%= file_case.date.to_date %></td>
               <td><%= file_case.tribunal.state.name %></td>
               <td><%= file_case.tribunal.name %></td>
               <td><%= file_case.description %></td>
