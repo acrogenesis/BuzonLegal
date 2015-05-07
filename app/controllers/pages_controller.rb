@@ -1,8 +1,8 @@
 class PagesController < ApplicationController
-  skip_before_action :verify_authenticity_token, only: [:get_jury]
+  skip_before_action :verify_authenticity_token, only: [:jury]
 
   def index
-    render layout: "landing"
+    render layout: 'landing'
   end
 
   def search
@@ -38,9 +38,9 @@ class PagesController < ApplicationController
     @incidents_by_date = Incident.where(created_at: Date.current..(Date.current - 3.months)).order(created_at: :desc).group_by { |incid| incid.created_at.day }.values
   end
 
-  def get_jury
+  def jury
     respond_to do |format|
-      format.json { render :json => { options: Tribunal.where(state_id: params[:state_id]).pluck(:name, :id) } }
+      format.json { render json: { options: Tribunal.where(state_id: params[:state_id]).pluck(:name, :id) } }
     end
   end
 end

@@ -9,7 +9,7 @@ ready = ->
     state_id = $(this).val()
     $('#jury').find('option').remove().end()
     if state_id
-      $.ajax '/get_jury',
+      $.ajax '/jury',
         data: { state_id: state_id }
         type: 'GET'
         dataType: 'json'
