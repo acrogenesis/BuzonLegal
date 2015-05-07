@@ -64,37 +64,39 @@ body,
 .col-top {
   vertical-align: top;
 }
+
 .col-middle {
   vertical-align: middle;
 }
+
 .col-bottom {
   vertical-align: bottom;
 }
 
 .advanced-link{
+  padding-top: 10px;
   text-align: right;
-  padding-top:10px;
 }
 
 .advanced-options{
-  padding-left:0;
-  padding-bottom:20px;
-  font-size:18px;
+  font-size: 18px;
+  padding-bottom: 20px;
+  padding-left: 0;
 }
 .logo2{
-  text-decoration:none;
-  color:black;
+  color: black;
+  text-decoration: none;
 }
 
 footer {
   font-size: 14px;
-  text-align: center;
   height: 5%;
+  text-align: center;
 }
 
 .inner-wrapper {
-  margin-top: 2em;
   margin-bottom: 2em;
+  margin-top: 2em;
 }
 
 .check-icon {
@@ -106,29 +108,29 @@ footer {
 }
 
 .icon-description {
-  width: 50%;
-  text-align: center;
   float: left;
   margin-top: 10px;
+  text-align: center;
+  width: 50%;
 }
 
 .status-icon {
-  margin-top: 20px;
   margin-bottom: 10px;
+  margin-top: 20px;
 }
 
 .wrapper {
-  width: 80%;
   margin: 0 auto;
+  width: 80%;
 }
 
 .status-container {
+  border: 1px solid rgba(0, 0, 0, .1);
   border-radius: 8px;
-  border: 1px solid rgba(0,0,0,0.1);
 }
 
 .log {
+  border-bottom: 1px solid rgba(10, 10, 10, .1);
   margin: 10px;
   padding: 5px;
-  border-bottom: 1px solid rgba(10, 10, 10, 0.1);
 }
