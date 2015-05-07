@@ -2,9 +2,11 @@
 <div class="row">
   <div class="col-xs-12">
     <% if @cases.to_a.empty? %>
-      <h3>No se han encontrado acuerdos</h3>
+      <h3>No se han encontrado acuerdos con</h3>
+      <%= print_query %>
     <% else %>
       <h3>Resultado de acuerdos</h3>
+      <%= print_query %>
     <% end %>
   </div>
 </div>
