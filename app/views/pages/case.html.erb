@@ -20,7 +20,7 @@
       <tbody>
         <% @cases.each do |file_case| %>
           <tr>
-            <td><%= file_case.date %></td>
+            <td><%= l file_case.date, format: :long_no_time%></td>
             <td><%= file_case.description %></td>
           </tr>
         <% end %>
