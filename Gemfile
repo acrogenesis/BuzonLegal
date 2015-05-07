@@ -13,6 +13,10 @@ gem 'bootstrap-sass', '~> 3.3.3'
 gem 'font-awesome-rails'
 gem 'annotate'
 gem 'rails-i18n'
+gem 'typhoeus'
+gem 'mechanize'
+gem 'nokogiri'
+gem 'pry'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
