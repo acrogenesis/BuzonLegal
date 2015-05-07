@@ -7,16 +7,16 @@ class PagesController < ApplicationController
 
   def search
     date = params[:date]
+    @cases = Case
     if date.present? && params[:jury].present?
-      date =  Date.strptime(date, "%m/%d/%Y")
-      @cases = Case.where(tribunal_id: params[:jury], date: date).where("casenumber LIKE :q OR description LIKE :q", { q: "%#{params[:q]}%" })
+      date =  Date.strptime(date, '%m/%d/%Y')
+      @cases = @cases.where(tribunal_id: params[:jury], date: date)
     elsif date.present?
-      @cases = Case.where(date: date).where("casenumber LIKE :q OR description LIKE :q", { q: "%#{params[:q]}%" })
+      @cases = @cases.where(date: date)
     elsif params[:jury].present?
-      @cases = Case.where(tribunal_id: params[:jury]).where("casenumber LIKE :q OR description LIKE :q", { q: "%#{params[:q]}%" })
-    else
-      @cases = Case.where("casenumber LIKE :q OR description LIKE :q", { q: "%#{params[:q]}%" })
+      @cases = @cases.where(tribunal_id: params[:jury])
     end
+    @cases = @cases.where('casenumber ILIKE :q OR description ILIKE :q', q: "%#{params[:q]}%")
   end
 
   def case
