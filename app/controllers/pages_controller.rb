@@ -35,7 +35,7 @@ class PagesController < ApplicationController
 
   def status
     @states = State.all
-    @incidents_by_date = Incident.where(created_at: Date.current..(Date.current - 3.months)).order(created_at: :desc).group_by { |incid| incid.created_at.day }.values
+    @incidents_by_date = Incident.where(created_at: (Date.current - 3.months).. Date.current).order(created_at: :desc).group_by { |incid| incid.created_at.day }.values
   end
 
   def jury
