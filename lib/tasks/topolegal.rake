@@ -68,8 +68,9 @@ namespace :topolegal do
         end
         state.online = true
         state.last_time_online = date
-      rescue Errno::ENOENT
+      rescue => e
         puts "WARNING: Failed to locate CSV for #{state.name}"
+        puts e
       end
     end
     filename = "#{path}Log-#{date_str}.csv"
@@ -83,8 +84,9 @@ namespace :topolegal do
         Incident.create(state: state, created_at: fecha, description: descripcion)
         state.update_attributes(online: false, last_time_online: date)
       end
-    rescue Errno::ENOENT
+    rescue => e
       puts "No incidents found."
+      puts e
     end
   end
 end
