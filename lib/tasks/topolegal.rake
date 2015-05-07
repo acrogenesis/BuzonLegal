@@ -8,10 +8,12 @@ namespace :topolegal do
   task :boletines, [:date] => [:environment] do |t, args|
 
     if args[:date]
-      date = args[:date].split("/").join("-")
+      date = Date.strptime(args[:date],'%d/%m/%Y')
     else
-      date = (Date.today - 1).strftime('%d-%m-%Y')
+      date = Date.today - 1
     end
+
+    date_str = date.strftime('%d-%m-%Y')
 
     # se toma del ambiente de la computadora
     # export CSVDIR="/path/to/csvs/"
@@ -19,7 +21,7 @@ namespace :topolegal do
 
     State.all.each do |state|
 
-      filename = "#{path}#{state.name}-#{date}.csv"
+      filename = "#{path}#{state.name}-#{date_str}.csv"
 
       begin
 
@@ -37,6 +39,9 @@ namespace :topolegal do
             tribunal: tribunal,
           )
         end
+
+        state.online = true
+        state.last_time_online = date
 
       rescue Errno::ENOENT
         puts "WARNING: Failed to locate CSV for #{state.name}"
