@@ -3,16 +3,16 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap-datepicker'
 end
 
-ruby '2.2.0'
+ruby '2.1.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
 gem 'bootstrap-sass', '~> 3.3.3'
-gem "font-awesome-rails"
-gem "annotate"
-gem "rails-i18n"
+gem 'font-awesome-rails'
+gem 'annotate'
+gem 'rails-i18n'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
